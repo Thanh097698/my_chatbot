@@ -35,12 +35,19 @@ def ask():
 
     try:
         best_contexts = retrieve_best_context(question, top_k=3)
-        combined_context = "\n\n".join(best_contexts)
-
-        prompt = f"""Bạn là trợ lý AI. Hãy trả lời câu hỏi dưới đây dựa vào ngữ cảnh.
+        if best_contexts:
+            combined_context = "\n\n".join(best_contexts)
+            prompt = f"""Bạn là trợ lý AI. Hãy trả lời câu hỏi dưới đây dựa vào ngữ cảnh.
 
 Ngữ cảnh:
 {combined_context}
+
+Câu hỏi:
+{question}
+
+Trả lời bằng tiếng Việt:"""
+        else:
+            prompt = f"""Bạn là trợ lý AI. Hãy trả lời câu hỏi dưới đây.
 
 Câu hỏi:
 {question}
