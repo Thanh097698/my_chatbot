@@ -1,8 +1,4 @@
 flask
 google-generativeai
-sentence-transformers
-faiss-cpu
-datasets
 python-dotenv
-pyarrow
-numpy<2.0
+datasets
